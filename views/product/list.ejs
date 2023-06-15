@@ -26,8 +26,9 @@
                     <td>
                       <a href="/products/edit/<%= ProductList[index].id %>" class="btn btn-info btn-sm"><i class="fa-solid fa-file-pen fa-lg"></i> Edit</a>
                     </td>
+
                     <td>
-                      <a href="/products/delete/<%= ProductList[index].id %>"class="btn btn-danger btn-sm"><i class="fa-solid fa-trash fa-lg"></i> Delete</a>
+                      <a href="/products/delete/<%= ProductList[index].id %>" class="btn btn-danger btn-sm" onClick="return confirm('Are you sure you want to delete this product?')"><i class="fa-solid fa-trash fa-lg"></i> Delete</a>
                     </td>
                 </tr>
             <% } %>
