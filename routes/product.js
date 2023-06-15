@@ -42,5 +42,48 @@ router.post('/add', (req,res,next)=>{
     });
 });
 
+//Retrieve data from MongoDB and Open it in view (Form)
+router.get('/edit/:id',(req,res,next)=>{
+    let id = req.params.id;
+
+    Product.findById(id, (err, productToEdit) =>{
+        if(err){
+            console.log(err);
+            res.end(err);
+        }
+        else{
+            //write to display data in view
+            res.render('product/edit', {title : 'Edit Product', product: productToEdit})
+        
+        }
+    });
+}) ;
+
+//this mean localhost:3000/product/edit/id
+
+//write code to store updated date into mongodb
+router.post('/edit/:id', (req,res,next) => {
+    let id = req.params.id;
+
+    let updatedProduct = Product({
+        "_id": id,
+        "name": req.body.pname,
+        "company": req.body.pcompany,
+        "price": req.body.price
+    });
+
+    //console.log(updatedProduct);
+
+    Product.updateOne({_id: id}, updatedProduct, (err)=>{
+        if(err){
+            console.log(err);
+            res.end(err);
+        }else{
+            console.log('Exit from edit page');
+            res.redirect('/products');
+        
+        }
+    });
+});
 
 module.exports = router;

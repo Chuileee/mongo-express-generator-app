@@ -12,6 +12,7 @@
               <th scope="col">Name</th>
               <th scope="col">Company</th>
               <th scope="col">Price</th>
+              <th scope="col">Edit</th>
             </tr>
           </thead>
           <tbody>
@@ -20,6 +21,9 @@
                     <td><%= ProductList[index].name %></td>
                     <td><%= ProductList[index].company %></td>
                     <td><%= ProductList[index].price %></td>
+                    <td>
+                      <a href="/products/edit/<%= ProductList[index].id %>" class="btn btn-info btn-sm"><i class="fa-solid fa-file-pen fa-lg"></i> Edit</a>
+                    </td>
                 </tr>
             <% } %>
           </tbody>
