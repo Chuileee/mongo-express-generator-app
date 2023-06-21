@@ -31,4 +31,9 @@ router.get('/service', function(req, res, next) {
   res.render('index', { title: 'Service' });
 });
 
+/* GET employee page. */
+router.get('/employee', function(req, res, next) {
+  res.render('index', { title: 'Employee' });
+});
+
 module.exports = router;
