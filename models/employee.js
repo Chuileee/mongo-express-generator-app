@@ -5,7 +5,7 @@ let employeeModel =mongoose.Schema(
     {
         "name": String,
         "address": String,
-        "contact": Number
+        "contact": String
     },
     {
         collection:"employee"
